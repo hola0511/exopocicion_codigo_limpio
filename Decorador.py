@@ -33,8 +33,9 @@ class SMSNotifier(NotifierDecorator):
         print(f"Enviando SMS: {message}")
 
 # Uso de los decoradores
-basic_notifier = BasicNotifier()                # Notificación básica
-email_notifier = EmailNotifier(basic_notifier)  # Notificación por correo
-sms_notifier = SMSNotifier(email_notifier)      # Notificación por correo y SMS
+basic_notifier = BasicNotifier()               
+email_notifier = EmailNotifier(basic_notifier) 
+sms_notifier = SMSNotifier(basic_notifier)     
 
 sms_notifier.send("Tu pedido ha sido enviado.")
+email_notifier.send("Tu pedido se perdio")
